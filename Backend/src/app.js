@@ -6,7 +6,7 @@ const productRoutes = require('./routes/product.routes');
 const orderRoutes = require('./routes/order.routes');
 const paymentRoutes = require('./routes/payment.routes');
 const analyticsRoutes = require('./routes/analytics.routes');
-const reportRoutes = require('./routes/report.routes');
+const reviewsRoutes = require('./routes/review.routes');
 
 app.use(cors());
 app.use(express.json());
@@ -20,6 +20,6 @@ app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/analytics', analyticsRoutes);
-app.use('/api/reports', reportRoutes);
+app.use('/api/reviews', reviewsRoutes);
 
 module.exports = app;
