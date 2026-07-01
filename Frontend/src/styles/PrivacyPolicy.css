@@ -1,0 +1,191 @@
+/* ======================================
+        PRIVACY POLICY
+====================================== */
+
+.privacy{
+
+    min-height:100vh;
+
+    padding:80px 8%;
+
+    background:#f8fafc;
+}
+
+.privacy-container{
+
+    max-width:1000px;
+
+    margin:auto;
+}
+
+.privacy-header{
+
+    text-align:center;
+
+    margin-bottom:50px;
+}
+
+.privacy-header h1{
+
+    font-size:3rem;
+
+    color:#111827;
+
+    margin-bottom:20px;
+}
+
+.privacy-header p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    color:#6b7280;
+
+    line-height:1.8;
+
+    font-size:1.05rem;
+}
+
+/* ==========================
+        CARD
+========================== */
+
+.privacy-card{
+
+    background:white;
+
+    padding:50px;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    animation:fadeUp .7s ease;
+}
+
+.privacy-card h2{
+
+    color:#2563eb;
+
+    margin-top:35px;
+
+    margin-bottom:15px;
+
+    font-size:1.5rem;
+}
+
+.privacy-card h2:first-child{
+
+    margin-top:0;
+}
+
+.privacy-card p{
+
+    color:#4b5563;
+
+    line-height:1.9;
+
+    margin-bottom:18px;
+}
+
+.privacy-contact{
+
+    margin-top:25px;
+
+    background:#f1f5f9;
+
+    padding:25px;
+
+    border-left:5px solid #2563eb;
+
+    border-radius:12px;
+}
+
+.privacy-contact p{
+
+    margin-bottom:10px;
+
+    color:#111827;
+}
+
+.privacy-contact strong{
+
+    color:#2563eb;
+}
+
+/* ==========================
+        ANIMATION
+========================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================
+        RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+.privacy{
+
+padding:60px 5%;
+
+}
+
+.privacy-card{
+
+padding:30px;
+
+}
+
+.privacy-header h1{
+
+font-size:2.2rem;
+
+}
+
+.privacy-card h2{
+
+font-size:1.3rem;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.privacy-header h1{
+
+font-size:1.8rem;
+
+}
+
+.privacy-card{
+
+padding:22px;
+
+}
+
+.privacy-contact{
+
+padding:18px;
+
+}
+
+}

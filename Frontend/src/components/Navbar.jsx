@@ -32,7 +32,7 @@ const Navbar = () => {
         </li>
 
         <li>
-          <Link to="/cart">Cart({cartItems.length})</Link>
+          <Link to="/cart">Cart<span className="cart-count">{cartItems.length}</span></Link>
         </li>
         {user ? (
   <>

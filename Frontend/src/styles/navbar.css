@@ -1,96 +1,342 @@
-/* ==========================
-   Navbar
-========================== */
-
+/* ==========================================
+                NAVBAR
+========================================== */
 .navbar {
-  width: 100%;
-  height: 70px;
-
-  background: #111827;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 0 60px;
-
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  background: rgba(17, 24, 39, 0.95);
+  backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: 0.35s ease;
+
+  overflow: hidden;
 }
 
-/* ==========================
-   Brand
-========================== */
+.navbar.scrolled {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+}
+
+/* ==========================================
+                BRAND
+========================================== */
 
 .navbar-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 
-  text-decoration: none;
   color: white;
+
+  flex-shrink: 0;
+}
+
+.Navbar-logo {
+  width: 52px;
+  height: 52px;
+
+  object-fit: contain;
+
+  border-radius: 12px;
+
+  transition: 0.35s ease;
+}
+
+.navbar-brand:hover .Navbar-logo {
+  transform: rotate(-8deg) scale(1.08);
 }
 
 .navbar-brand span {
-  font-size: 28px;
+  font-size: 1.9rem;
   font-weight: 700;
+
+  background: linear-gradient(
+      135deg,
+      #ffffff,
+      #60a5fa
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* ==========================
-   Logo
-========================== */
-
-.Navbar-logo {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-}
-
-/* ==========================
-   Links
-========================== */
+/* ==========================================
+            NAVIGATION
+========================================== */
 
 .navbar-links {
   display: flex;
   align-items: center;
   gap: 30px;
+}
 
+.navbar-links li {
   list-style: none;
 }
 
 .navbar-links a {
-  text-decoration: none;
+  position: relative;
+
   color: white;
 
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 500;
 
   transition: 0.3s;
 }
 
-.navbar-links a:hover {
-  color: #3b82f6;
+.navbar-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -8px;
+
+  width: 0%;
+  height: 3px;
+
+  background: var(--primary);
+
+  border-radius: 20px;
+
+  transition: 0.35s;
 }
 
-/* ==========================
-   Responsive
-========================== */
+.navbar-links a:hover {
+  color: #60a5fa;
+}
 
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    height: auto;
-    padding: 20px;
-    gap: 20px;
+.navbar-links a:hover::after {
+  width: 100%;
+}
+
+/* ==========================================
+            CART BADGE
+========================================== */
+
+.cart-count {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 22px;
+  height: 22px;
+
+  margin-left: 6px;
+
+  padding: 0 6px;
+
+  border-radius: 50px;
+
+  background: #2563eb;
+  color: white;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+  0% {
+    transform: scale(1);
   }
 
-  .navbar-links {
-    flex-direction: column;
-    gap: 15px;
+  50% {
+    transform: scale(1.15);
   }
 
-  .navbar-brand span {
-    font-size: 24px;
+  100% {
+    transform: scale(1);
   }
+
+}
+
+/* ==========================================
+            BUTTON
+========================================== */
+
+.btn-logout {
+  background: #2563eb;
+  color: white;
+
+  padding: 10px 18px;
+
+  border-radius: 8px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  transition: .35s;
+}
+
+.btn-logout:hover {
+  background: #1d4ed8;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 12px 24px rgba(37,99,235,.35);
+}
+
+/* ==========================================
+            MENU BUTTON
+========================================== */
+
+.menu-btn {
+
+  display: none;
+
+  font-size: 30px;
+
+  color: white;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+/* ==========================================
+            TABLET
+========================================== */
+
+@media (max-width:992px){
+
+.navbar{
+
+padding:0 30px;
+
+}
+
+.navbar-brand span{
+
+font-size:1.6rem;
+
+}
+
+}
+
+/* ==========================================
+            MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+.navbar{
+
+height:70px;
+
+padding:0 20px;
+
+}
+
+.menu-btn{
+
+display:block;
+
+}
+
+.navbar-links{
+
+position:fixed;
+
+top:70px;
+
+right:-100%;
+
+width:280px;
+
+height:calc(100vh - 70px);
+
+background:#111827;
+
+flex-direction:column;
+
+align-items:flex-start;
+
+justify-content:flex-start;
+
+padding:35px;
+
+gap:28px;
+
+transition:.35s;
+
+box-shadow:-8px 0 25px rgba(0,0,0,.25);
+
+}
+
+.navbar-links.active{
+
+right:0;
+
+}
+
+.navbar-links li{
+
+width:100%;
+
+}
+
+.navbar-links a{
+
+display:block;
+
+width:100%;
+
+font-size:18px;
+
+padding:8px 0;
+
+}
+
+.btn-logout{
+
+width:100%;
+
+}
+
+}
+
+/* ==========================================
+            SMALL MOBILE
+========================================== */
+
+@media(max-width:480px){
+
+.navbar{
+
+padding:0 15px;
+
+}
+
+.Navbar-logo{
+
+width:42px;
+
+height:42px;
+
+}
+
+.navbar-brand span{
+
+font-size:1.4rem;
+
+}
+
+.navbar-links{
+
+width:240px;
+
+}
+
 }

@@ -1,100 +1,365 @@
-/* Google Font */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+/* ==========================================
+            GOOGLE FONT
+========================================== */
 
-*{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/* ==========================================
+            RESET
+========================================== */
+
+*,
+*::before,
+*::after{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-/* Root */
+/* ==========================================
+            ROOT VARIABLES
+========================================== */
+
 :root{
+
     --primary:#2563eb;
-    --secondary:#1e40af;
+    --primary-dark:#1d4ed8;
+
+    --secondary:#3b82f6;
+
     --success:#16a34a;
     --danger:#dc2626;
     --warning:#f59e0b;
+
     --black:#111827;
     --dark:#1f2937;
+
     --white:#ffffff;
+
     --gray:#6b7280;
-    --light:#f3f4f6;
+    --gray-light:#9ca3af;
+
+    --light:#f8fafc;
     --border:#e5e7eb;
-    --radius:10px;
-    --transition:0.3s ease;
+
+    --shadow-sm:0 2px 8px rgba(0,0,0,.08);
+    --shadow-md:0 8px 24px rgba(0,0,0,.12);
+    --shadow-lg:0 15px 40px rgba(0,0,0,.18);
+
+    --radius:12px;
+
+    --transition:.3s ease;
 }
 
-/* Body */
-body{
-    font-family:"Poppins",sans-serif;
-    background:var(--light);
-    color:var(--black);
-    min-height:100vh;
+/* ==========================================
+            HTML
+========================================== */
+
+html{
+
+    scroll-behavior:smooth;
+
     overflow-x:hidden;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
 }
 
-/* Images */
+/* ==========================================
+            BODY
+========================================== */
+
+body{
+
+    font-family:"Poppins",sans-serif;
+
+    background:var(--light);
+
+    color:var(--black);
+
+    line-height:1.6;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    -webkit-font-smoothing:antialiased;
+
+    text-rendering:optimizeLegibility;
+}
+
+/* ==========================================
+            ROOT
+========================================== */
+
+#root{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow-x:hidden;
+}
+
+/* ==========================================
+            IMAGES
+========================================== */
 
 img{
-    width:100%;
+
+    max-width:100%;
+
     display:block;
+
     object-fit:cover;
 }
 
-/* Links */
+/* ==========================================
+            LINKS
+========================================== */
 
 a{
-    color:inherit;
+
     text-decoration:none;
-}
 
-/* Buttons */
+    color:inherit;
 
-button{
-    cursor:pointer;
-    border:none;
-    outline:none;
     transition:var(--transition);
 }
 
-/* Inputs */
+/* ==========================================
+            BUTTONS
+========================================== */
+
+button{
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+    transition:var(--transition);
+}
+
+/* ==========================================
+            INPUTS
+========================================== */
 
 input,
 textarea,
 select{
-    outline:none;
+
+    width:100%;
+
+    padding:12px 15px;
+
     border:1px solid var(--border);
-    font-family:inherit;
+
+    border-radius:10px;
+
     font-size:15px;
+
+    font-family:inherit;
+
+    outline:none;
+
+    transition:var(--transition);
+
+    background:white;
 }
 
-/* Lists */
+input:focus,
+textarea:focus,
+select:focus{
 
-ul{
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+}
+
+/* ==========================================
+            LISTS
+========================================== */
+
+ul,
+ol{
+
     list-style:none;
 }
 
-/* Containers */
+/* ==========================================
+            HEADINGS
+========================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+
+    font-weight:700;
+
+    color:var(--black);
+
+    line-height:1.2;
+}
+
+p{
+
+    color:var(--gray);
+}
+
+/* ==========================================
+            CONTAINER
+========================================== */
 
 .container{
-    width:90%;
-    max-width:1300px;
+
+    width:min(90%,1300px);
+
     margin:auto;
 }
 
-/* Scrollbar */
+/* ==========================================
+            SELECTION
+========================================== */
 
-::-webkit-scrollbar{
-    width:8px;
+::selection{
+
+    background:var(--primary);
+
+    color:white;
 }
 
-::-webkit-scrollbar-thumb{
-    background:var(--primary);
-    border-radius:20px;
+/* ==========================================
+            SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:9px;
 }
 
 ::-webkit-scrollbar-track{
-    background:#eee;
+
+    background:#edf2f7;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(
+        180deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    border-radius:50px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#1d4ed8;
+}
+
+/* ==========================================
+            UTILITIES
+========================================== */
+
+.text-center{
+
+    text-align:center;
+}
+
+.flex{
+
+    display:flex;
+}
+
+.grid{
+
+    display:grid;
+}
+
+.hidden{
+
+    display:none;
+}
+
+/* ==========================================
+            ANIMATIONS
+========================================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
+
+.fade-in{
+
+    animation:fadeIn .6s ease forwards;
+}
+
+/* ==========================================
+            RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+.container{
+
+width:94%;
+}
+
+}
+
+@media(max-width:768px){
+
+h1{
+
+font-size:2rem;
+}
+
+h2{
+
+font-size:1.6rem;
+}
+
+body{
+
+font-size:15px;
+}
+
+}
+
+@media(max-width:480px){
+
+.container{
+
+width:95%;
+}
+
+h1{
+
+font-size:1.8rem;
+}
+
+h2{
+
+font-size:1.4rem;
+}
 }
