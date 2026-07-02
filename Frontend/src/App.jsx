@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import VerifyOtp from "./pages/VerifyOtp";
 import ForgotPassword from "./pages/ForgotPassword";
+import Shop from "./pages/Shop";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import CheckOut from "./pages/Checkout"
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/verify-otp" element={<VerifyOtp />} />
           <Route path="/register/verify-otp" element={<VerifyOtp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/shop" element={<Shop />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/cart/" element={<Cart />} />
           <Route path="/checkout" element={<CheckOut />} />
