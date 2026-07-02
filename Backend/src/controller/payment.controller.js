@@ -1,6 +1,6 @@
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
-dotenv = require("dotenv").config();
+
 const createOrder = async(req,res) => {
 try{
   const instance = new Razorpay({
@@ -43,7 +43,11 @@ try{
     })
   };
 
-  const generatedSignature = crypto.createHmac("sha256",process.env.RAZORPAY_KEY_SECRET).update(razorpay_payment_id + "|" + razorpay_order_id).digest("hex");
+  const generatedSignature = crypto
+  .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
+  .update(`${razorpay_order_id}|${razorpay_payment_id}`)
+  .digest("hex");
+
   if(generatedSignature !== razorpay_signature){
     return res.status(400).json({
       success:false,
