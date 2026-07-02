@@ -16,6 +16,13 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import CheckOut from "./pages/Checkout"
 import OrderSuccess from "./pages/OrderSuccess";
+import Profile from "./pages/Profile";
+import AdminDashboard from "./Admin/AdminDashboard";
+import AddProduct from "./Admin/AddProduct";
+import EditProduct from "./Admin/EditProduct";
+import AdminProduct from "./Admin/AdminProduct";
+import AdminOrders from "./Admin/AdminOrders";
+import AdminUsers from "./Admin/AdminUsers";
 
 const App = () => {
   return (
@@ -35,6 +42,14 @@ const App = () => {
           <Route path="/cart/" element={<Cart />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/order-success" element={<OrderSuccess />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path ="/admin" element ={<AdminDashboard />}/>
+          <Route path = "/admin/add-product" element ={<AddProduct />}/>
+          <Route path = "/admin/edit-product/:id" element ={<EditProduct />}/>
+          <Route path = "/admin/products" element ={<AdminProduct />}/>
+          <Route path = "/admin/orders" element ={<AdminOrders />}/>
+          <Route path = "/admin/users" element ={<AdminUsers />}/>
+         
       </Routes>
 
       <Footer />
