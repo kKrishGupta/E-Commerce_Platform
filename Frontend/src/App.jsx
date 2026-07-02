@@ -10,6 +10,10 @@ import Return from "./pages/ReturnPolicy";
 import Disclaimer from "./pages/Disclaimer";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Term from "./pages/Terms";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import ProductDetails from "./pages/ProductDetails";
+
 const App = () => {
   return (
     <>
@@ -22,6 +26,9 @@ const App = () => {
           <Route path ="/disclaimer" element ={<Disclaimer/>}/>
           <Route path ="/privacy" element ={<PrivacyPolicy/>}/>
           <Route path ="/terms" element ={<Term/>}/>
+          <Route path= "/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
 
       <Footer />

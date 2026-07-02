@@ -1,0 +1,240 @@
+/* =====================================
+        AUTH PAGE
+===================================== */
+
+.auth-container{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px 20px;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb 0%,
+        #1d4ed8 50%,
+        #111827 100%
+    );
+}
+
+/* =====================================
+        FORM
+===================================== */
+
+.auth-form{
+
+    width:100%;
+    max-width:430px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    border-radius:20px;
+
+    padding:40px;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.25);
+
+    animation:fadeUp .7s ease;
+}
+
+.auth-form h1{
+
+    text-align:center;
+
+    color:white;
+
+    margin-bottom:30px;
+
+    font-size:2rem;
+
+    font-weight:700;
+}
+
+/* =====================================
+        INPUTS
+===================================== */
+
+.auth-form input{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    margin-bottom:18px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
+
+    font-size:15px;
+
+    transition:.3s;
+}
+
+.auth-form input::placeholder{
+
+    color:#d1d5db;
+}
+
+.auth-form input:focus{
+
+    background:rgba(255,255,255,.22);
+
+    box-shadow:0 0 0 3px rgba(96,165,250,.4);
+}
+
+/* =====================================
+        BUTTON
+===================================== */
+
+.btn{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+.btn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(37,99,235,.4);
+}
+
+/* =====================================
+        LINKS
+===================================== */
+
+.auth-form p{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:15px;
+}
+
+.auth-form a{
+
+    color:#93c5fd;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.auth-form a:hover{
+
+    color:white;
+}
+
+/* =====================================
+        ANIMATION
+===================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+
+}
+
+/* =====================================
+        RESPONSIVE
+===================================== */
+
+@media(max-width:768px){
+
+.auth-form{
+
+padding:30px;
+
+}
+
+.auth-form h1{
+
+font-size:1.8rem;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.auth-container{
+
+padding:20px;
+
+}
+
+.auth-form{
+
+padding:25px;
+
+border-radius:15px;
+
+}
+
+.auth-form h1{
+
+font-size:1.6rem;
+
+}
+
+.auth-form input{
+
+padding:14px;
+
+}
+
+.btn{
+
+padding:14px;
+
+}
+
+}
