@@ -12,17 +12,19 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Term from "./pages/Terms";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import VerifyOtp from "./pages/VerifyOtp";
+import ForgotPassword from "./pages/ForgotPassword";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import CheckOut from "./pages/Checkout"
 import OrderSuccess from "./pages/OrderSuccess";
 import Profile from "./pages/Profile";
-import AdminDashboard from "./Admin/AdminDashboard";
-import AddProduct from "./Admin/AddProduct";
-import EditProduct from "./Admin/EditProduct";
-import AdminProduct from "./Admin/AdminProduct";
-import AdminOrders from "./Admin/AdminOrders";
-import AdminUsers from "./Admin/AdminUsers";
+import AdminDashboard from "./admin/AdminDashboard";
+import AddProduct from "./admin/AddProduct";
+import EditProduct from "./admin/EditProduct";
+import AdminProduct from "./admin/AdminProduct";
+import AdminOrders from "./admin/AdminOrders";
+import AdminUsers from "./admin/AdminUsers";
 
 const App = () => {
   return (
@@ -38,6 +40,9 @@ const App = () => {
           <Route path ="/terms" element ={<Term/>}/>
           <Route path= "/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/verify-otp" element={<VerifyOtp />} />
+          <Route path="/register/verify-otp" element={<VerifyOtp />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/cart/" element={<Cart />} />
           <Route path="/checkout" element={<CheckOut />} />

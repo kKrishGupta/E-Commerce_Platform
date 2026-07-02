@@ -1,16 +1,20 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
+import { AuthContext } from "../context/AuthContext";
 import "../styles/Auth.css";
 
-const Register = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const VerifyOtp = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
+  const savedEmail = sessionStorage.getItem("pendingRegisterEmail") || "";
+
+  const [email, setEmail] = useState(location.state?.email || savedEmail);
+  const [otp, setOtp] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,32 +23,30 @@ const Register = () => {
     setMessage("");
 
     try {
-      const response = await fetch("/api/auth/register", {
+      const response = await fetch("/api/auth/register/verify-otp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name,
           email,
-          password,
+          otp,
         }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.message || "Registration failed.");
+        setError(data.message || "OTP verification failed.");
         return;
       }
 
-      sessionStorage.setItem("pendingRegisterEmail", email);
-      setMessage(data.message || "OTP sent successfully. Please verify your email.");
-      navigate("/register/verify-otp", {
-        state: { email },
-      });
-    } catch (registerError) {
-      console.error(registerError);
+      sessionStorage.removeItem("pendingRegisterEmail");
+      login(data.user, data.token);
+      setMessage(data.message || "Email verified successfully.");
+      navigate(data.user?.role === "admin" ? "/admin" : "/", { replace: true });
+    } catch (verifyError) {
+      console.error(verifyError);
       setError("Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
@@ -54,23 +56,11 @@ const Register = () => {
   return (
     <div className="auth-container">
       <form onSubmit={handleSubmit} className="auth-form auth-form-wide">
-        <span className="auth-kicker">Create account</span>
-        <h1>Register With ShopNest</h1>
+        <span className="auth-kicker">Email verification</span>
+        <h1>Verify Your OTP</h1>
 
         {error && <div className="auth-message auth-error">{error}</div>}
         {message && <div className="auth-message auth-success">{message}</div>}
-
-        <label className="auth-field">
-          <span>Full Name</span>
-          <input
-            type="text"
-            placeholder="Your full name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            required
-            disabled={isLoading}
-          />
-        </label>
 
         <label className="auth-field">
           <span>Email Address</span>
@@ -85,28 +75,29 @@ const Register = () => {
         </label>
 
         <label className="auth-field">
-          <span>Password</span>
+          <span>Registration OTP</span>
           <input
-            type="password"
-            minLength="8"
-            placeholder="Minimum 8 characters"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
+            type="text"
+            inputMode="numeric"
+            maxLength="6"
+            placeholder="Enter 6 digit OTP"
+            value={otp}
+            onChange={(event) => setOtp(event.target.value)}
             required
             disabled={isLoading}
           />
         </label>
 
         <button type="submit" className="btn" disabled={isLoading}>
-          {isLoading ? "Sending OTP..." : "Register"}
+          {isLoading ? "Verifying..." : "Verify OTP"}
         </button>
 
         <p>
-          Already have an account? <Link to="/login">Login</Link>
+          Need a new OTP? <Link to="/register">Register again</Link>
         </p>
       </form>
     </div>
   );
 };
 
-export default Register;
+export default VerifyOtp;
