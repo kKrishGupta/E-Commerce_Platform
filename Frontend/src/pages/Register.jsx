@@ -1,13 +1,11 @@
-import React,{useState,useContext} from 'react';
+import React,{useState} from 'react';
 import { useNavigate ,Link} from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
 import '../styles/Auth.css';
 
 const Register = () =>{
   const [name, setName] = useState('');
   const[email,setEmail] = useState('');
   const[password,setPassword] = useState('');
-  const{login} = useContext(AuthContext);
   const navigate = useNavigate();
 
 

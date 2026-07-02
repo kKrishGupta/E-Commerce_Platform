@@ -13,6 +13,9 @@ import Term from "./pages/Terms";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ProductDetails from "./pages/ProductDetails";
+import Cart from "./pages/Cart";
+import CheckOut from "./pages/Checkout"
+import OrderSuccess from "./pages/OrderSuccess";
 
 const App = () => {
   return (
@@ -29,6 +32,9 @@ const App = () => {
           <Route path= "/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/cart/" element={<Cart />} />
+          <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/order-success" element={<OrderSuccess />} />
       </Routes>
 
       <Footer />

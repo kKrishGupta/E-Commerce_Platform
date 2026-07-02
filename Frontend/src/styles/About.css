@@ -1,11 +1,11 @@
 .about{
-    padding:80px 8%;
+    padding:clamp(56px,8vw,88px) clamp(16px,6vw,8%);
     background:#f8fafc;
     min-height:100vh;
 }
 
 .about-container{
-    max-width:1200px;
+    width:min(100%,1200px);
     margin:auto;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .about-header h1{
-    font-size:3rem;
+    font-size:clamp(2rem,5vw,3rem);
     margin-bottom:20px;
     color:#111827;
 }
@@ -34,15 +34,16 @@
 
 .about-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-    margin-bottom:80px;
+    grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));
+    gap:clamp(18px,3vw,30px);
+    margin-bottom:clamp(52px,8vw,80px);
 }
 
 .about-card{
     background:white;
-    padding:35px;
-    border-radius:15px;
+    padding:clamp(24px,4vw,35px);
+    border:1px solid rgba(226,232,240,.9);
+    border-radius:18px;
     text-align:center;
     transition:.35s;
     box-shadow:0 5px 20px rgba(0,0,0,.08);
@@ -70,15 +71,15 @@
 
 .about-story{
     background:white;
-    padding:50px;
+    padding:clamp(26px,5vw,50px);
     border-radius:20px;
-    margin-bottom:70px;
+    margin-bottom:clamp(46px,7vw,70px);
     box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
 
 .about-story h2{
     margin-bottom:20px;
-    font-size:2rem;
+    font-size:clamp(1.55rem,4vw,2rem);
 }
 
 .about-story p{
@@ -89,8 +90,8 @@
 
 .about-stats{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:25px;
+    grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));
+    gap:clamp(16px,3vw,25px);
 }
 
 .stat{
@@ -136,6 +137,37 @@
 
   .about-header p{
       font-size:1rem;
+  }
+
+}
+
+@media(max-width:576px){
+
+  .about-header{
+      margin-bottom:44px;
+  }
+
+  .about-card,
+  .stat{
+      border-radius:16px;
+  }
+
+  .about-icon{
+      font-size:46px;
+  }
+
+}
+
+@media(max-width:360px){
+
+  .about{
+      padding-left:12px;
+      padding-right:12px;
+  }
+
+  .about-story,
+  .about-card{
+      padding:22px 16px;
   }
 
 }

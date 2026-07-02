@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../styles/Navbar.css";
+import "../styles/navbar.css";
 import logo from "../assets/logo.png";
 import {AuthContext} from  "../context/AuthContext.jsx";
 import {useSelector} from "react-redux";

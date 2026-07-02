@@ -1387,3 +1387,254 @@ padding:25px;
 }
 
 }
+
+/* ==========================================
+            FINAL RESPONSIVE SAFETY
+========================================== */
+
+.cta-section,
+.newsletter,
+.testimonials{
+    padding-left:clamp(16px,6vw,8%);
+    padding-right:clamp(16px,6vw,8%);
+}
+
+.newsletter-form input{
+    width:min(420px,100%);
+}
+
+.testimonial-grid{
+    grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));
+}
+
+@media(max-width:576px){
+
+.cta-section,
+.newsletter,
+.testimonials{
+padding-top:60px;
+padding-bottom:60px;
+}
+
+.newsletter-form button,
+.cta-btn{
+width:100%;
+}
+
+}
+
+/* ==========================================
+            RESPONSIVE QUALITY PASS
+========================================== */
+
+.hero-banner,
+.features-section,
+.featured-products,
+.cta-section,
+.newsletter,
+.testimonials{
+    padding-left:clamp(16px,6vw,8%);
+    padding-right:clamp(16px,6vw,8%);
+}
+
+.hero-banner{
+    min-height:clamp(620px,calc(100vh - 80px),880px);
+}
+
+.hero-content{
+    width:min(900px,100%);
+    padding:clamp(28px,5vw,50px);
+}
+
+.hero-content h1{
+    font-size:clamp(2.1rem,7vw,4.5rem);
+}
+
+.hero-content p{
+    font-size:clamp(.95rem,2.4vw,1.2rem);
+}
+
+.hero-btn,
+.hero-outline-btn,
+.view-all,
+.cta-btn,
+.newsletter-form button{
+    min-height:48px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.hero-btn:focus-visible,
+.hero-outline-btn:focus-visible,
+.view-all:focus-visible,
+.cta-btn:focus-visible,
+.newsletter-form button:focus-visible,
+.newsletter-form input:focus-visible{
+    outline:2px solid #93c5fd;
+    outline-offset:4px;
+}
+
+.stats-section{
+    grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));
+}
+
+.feature-grid{
+    grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));
+}
+
+.product-grid{
+    grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));
+    align-items:stretch;
+}
+
+.section-heading h2,
+.features-section h2,
+.cta-section h2,
+.newsletter h2,
+.testimonials h2{
+    font-size:clamp(1.8rem,4vw,2.8rem);
+}
+
+.empty-products{
+    padding:clamp(34px,8vw,80px) 16px;
+}
+
+@media(max-width:576px){
+
+.hero-banner{
+padding-top:72px;
+padding-bottom:72px;
+}
+
+.hero-content{
+border-radius:22px;
+}
+
+.stats-section{
+width:min(100% - 28px,1200px);
+margin-top:-34px;
+margin-bottom:64px;
+}
+
+.stat-card,
+.feature-card,
+.testimonial-card{
+padding:26px 20px;
+}
+
+.section-description{
+margin-bottom:38px;
+}
+
+.cta-section,
+.newsletter,
+.testimonials,
+.features-section,
+.featured-products{
+padding-top:60px;
+padding-bottom:60px;
+}
+
+}
+
+@media(max-width:360px){
+
+.hero-tag{
+width:100%;
+}
+
+.hero-content{
+padding:24px 14px;
+}
+
+.hero-content h1{
+font-size:1.85rem;
+}
+
+}
+
+/* ==========================================
+            FINAL HOME OVERFLOW FIX
+========================================== */
+
+.home-container{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+.home-container *,
+.home-container *::before,
+.home-container *::after{
+    min-width:0;
+}
+
+.hero-banner,
+.features-section,
+.featured-products,
+.cta-section,
+.newsletter,
+.testimonials{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+.hero-banner{
+    min-height:calc(100vh - 80px);
+    padding:clamp(72px,8vw,96px) clamp(16px,6vw,8%);
+}
+
+.hero-content{
+    width:min(900px,100%);
+    max-width:100%;
+}
+
+.hero-content h1,
+.hero-content p{
+    overflow-wrap:anywhere;
+}
+
+.stats-section{
+    width:min(1200px,calc(100% - 32px));
+    max-width:calc(100% - 32px);
+}
+
+.feature-grid,
+.product-grid,
+.testimonial-grid{
+    width:100%;
+    max-width:100%;
+}
+
+@media(max-width:768px){
+
+.hero-banner{
+    min-height:auto;
+}
+
+.hero-buttons{
+    width:100%;
+}
+
+.hero-btn,
+.hero-outline-btn{
+    width:min(100%,240px);
+}
+
+}
+
+@media(max-width:480px){
+
+.stats-section{
+    width:calc(100% - 24px);
+    max-width:calc(100% - 24px);
+}
+
+.hero-btn,
+.hero-outline-btn{
+    width:100%;
+}
+
+}
