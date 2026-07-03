@@ -1,3 +1,5 @@
+const API_URL = import.meta.env.VITE_API_URL;
+
 export const formatAdminCurrency = (amount) =>
   Number(amount || 0).toLocaleString("en-IN", {
     style: "currency",
@@ -56,7 +58,7 @@ export const adminRequest = async (endpoint, options = {}, user = null) => {
   const token = getAdminToken(user);
   const isFormData = options.body instanceof FormData;
 
-  const response = await fetch(endpoint, {
+  const response = await fetch(`${API_URL}${endpoint}`, {
     ...options,
     headers: {
       ...(isFormData ? {} : { "Content-Type": "application/json" }),
@@ -74,9 +76,11 @@ export const adminRequest = async (endpoint, options = {}, user = null) => {
   return data;
 };
 
-export const getOrderTotal = (order) => Number(order?.totalAmount || order?.total || 0);
+export const getOrderTotal = (order) =>
+  Number(order?.totalAmount || order?.total || 0);
 
-export const getOrderItems = (order) => (Array.isArray(order?.items) ? order.items : []);
+export const getOrderItems = (order) =>
+  Array.isArray(order?.items) ? order.items : [];
 
 export const getOrderCustomer = (order) => {
   const user = order?.user || {};
@@ -109,10 +113,8 @@ export const sortByText = (items, field, direction = "asc") => {
     const firstValue = String(firstItem?.[field] || "").toLowerCase();
     const secondValue = String(secondItem?.[field] || "").toLowerCase();
 
-    if (direction === "desc") {
-      return secondValue.localeCompare(firstValue);
-    }
-
-    return firstValue.localeCompare(secondValue);
+    return direction === "desc"
+      ? secondValue.localeCompare(firstValue)
+      : firstValue.localeCompare(secondValue);
   });
 };
