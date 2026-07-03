@@ -25,6 +25,7 @@ import {
 
 import { AuthContext } from "../context/AuthContext";
 import "../styles/profile.css";
+import { API_URL } from "../config/api";
 
 const currencyFormatter = new Intl.NumberFormat("en-IN", {
   style: "currency",
@@ -198,7 +199,7 @@ const Profile = () => {
       setOrdersError("");
 
       try {
-        const response = await fetch("/api/orders/myorders", {
+        const response = await fetch(`${API_URL}/api/orders/myorders`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

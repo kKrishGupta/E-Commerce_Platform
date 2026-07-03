@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { API_URL } from "../config/api";
 import {
   FaArrowLeft,
   FaBoxOpen,
@@ -431,7 +432,7 @@ const Checkout = () => {
       throw new Error("Razorpay key is missing. Add VITE_RAZORPAY_KEY_ID.");
     }
 
-    const paymentOrderResponse = await fetch("/api/payments/order", {
+    const paymentOrderResponse = await fetch(`${API_URL}/api/payments/order`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -482,7 +483,7 @@ const Checkout = () => {
       checkout.open();
     });
 
-    const verifyResponse = await fetch("/api/payments/verify", {
+    const verifyResponse = await fetch(`{API_URL}/api/payments/verify`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -501,7 +502,7 @@ const Checkout = () => {
       throw new Error("Please log in again before placing your order.");
     }
 
-    const orderResponse = await fetch("/api/orders", {
+    const orderResponse = await fetch( `${API_URL}/api/orders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

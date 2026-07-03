@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
+import { API_URL } from "../config/api";
 import { AuthContext } from "../context/AuthContext";
 import "../styles/Auth.css";
 
@@ -23,7 +23,7 @@ const VerifyOtp = () => {
     setMessage("");
 
     try {
-      const response = await fetch("/api/auth/register/verify-otp", {
+      const response = await fetch(`${API_URL}/api/auth/register/verify-otp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

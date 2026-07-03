@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { API_URL } from "../config/api";
 import { useDispatch, useSelector } from "react-redux";
 import {
   FaBoxOpen,
@@ -101,7 +102,7 @@ const Shop = () => {
       setError("");
 
       try {
-        const response = await fetch("/api/products");
+        const response = await fetch(`${API_URL}/api/products`);
         const data = await response.json();
 
         if (!response.ok) {

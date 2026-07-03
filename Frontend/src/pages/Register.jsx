@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import { API_URL } from "../config/api";
 import "../styles/Auth.css";
 
 const Register = () => {
@@ -19,7 +19,7 @@ const Register = () => {
     setMessage("");
 
     try {
-      const response = await fetch("/api/auth/register", {
+      const response = await fetch(`${API_URL}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

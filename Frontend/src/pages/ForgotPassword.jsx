@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import { API_URL } from "../config/api";
 import "../styles/Auth.css";
 
 const ForgotPassword = () => {
@@ -22,7 +22,7 @@ const ForgotPassword = () => {
     setMessage("");
 
     try {
-      const response = await fetch("/api/auth/forgot-password/send-otp", {
+      const response = await fetch(`${API_URL}/api/auth/forgot-password/send-otp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -54,7 +54,7 @@ const ForgotPassword = () => {
     setMessage("");
 
     try {
-      const response = await fetch("/api/auth/forgot-password/verify-otp", {
+      const response = await fetch(`${API_URL}/api/auth/forgot-password/verify-otp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -90,7 +90,7 @@ const ForgotPassword = () => {
     setMessage("");
 
     try {
-      const response = await fetch("/api/auth/forgot-password/reset-password", {
+      const response = await fetch(`${API_URL}/api/auth/forgot-password/reset-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

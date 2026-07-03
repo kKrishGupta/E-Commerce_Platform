@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
 import { AuthContext } from "../context/AuthContext";
 import "../styles/Auth.css";
+import {API_URL} from "../config/api";
 
 const getRedirectPath = (user, requestedPath) => {
   if (user?.role === "admin") {
@@ -46,7 +46,7 @@ const Login = () => {
     setMessage("");
 
     try {
-      const response = await fetch("/api/auth/login", {
+      const response = await fetch( `${API_URL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -80,7 +80,7 @@ const Login = () => {
     setMessage("");
 
     try {
-      const response = await fetch("/api/auth/login/send-otp", {
+      const response = await fetch(`${API_URL}/api/auth/login/send-otp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -112,7 +112,7 @@ const Login = () => {
     setMessage("");
 
     try {
-      const response = await fetch("/api/auth/login/verify-otp", {
+      const response = await fetch(`${API_URL}/api/auth/login/verify-otp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
